@@ -1,8 +1,8 @@
 const containerSize =500;
 const gridSize=16;
 const container=document.getElementById("container");
-
-function createGrid(){
+createGrid(gridSize);
+function createGrid(gridSize){
     
     container.innerHTML='';
     let  squareSize = 500/gridSize;
@@ -23,4 +23,12 @@ function createGrid(){
         container.appendChild(square);
     }
 }
-createGrid();
+
+function getGrid(){
+let gridS=parseInt(prompt("Please enter the grid size of choice less than 100."));
+if(gridS>100 || gridS<1 || isNaN(gridS)) {
+   gridS= prompt("Please enter a number less than 100");
+}
+createGrid(gridS);
+}
+document.getElementById("mybtn").onclick=getGrid;
